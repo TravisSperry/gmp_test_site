@@ -2044,26 +2044,26 @@ function custom_post_type() {
 
 // Set UI labels for Custom Post Type
 	$labels = array(
-		'name'                => _x( 'Ambassadors', 'Post Type General Name', 'zerif-pro' ),
-		'singular_name'       => _x( 'Ambassador', 'Post Type Singular Name', 'zerif-pro' ),
-		'menu_name'           => __( 'Ambassadors', 'zerif-pro' ),
-		'parent_item_colon'   => __( 'Parent Movie', 'zerif-pro' ),
-		'all_items'           => __( 'All Ambassadors', 'zerif-pro' ),
-		'view_item'           => __( 'View Ambassador', 'zerif-pro' ),
-		'add_new_item'        => __( 'Add New Ambassador', 'zerif-pro' ),
-		'add_new'             => __( 'Add New', 'zerif-pro' ),
-		'edit_item'           => __( 'Edit Ambassador', 'zerif-pro' ),
-		'update_item'         => __( 'Update Ambassador', 'zerif-pro' ),
-		'search_items'        => __( 'Search Ambassador', 'zerif-pro' ),
-		'not_found'           => __( 'Not Found', 'zerif-pro' ),
-		'not_found_in_trash'  => __( 'Not found in Trash', 'zerif-pro' ),
+		'name'                => _x( 'Ambassadors', 'Post Type General Name', 'zerif' ),
+		'singular_name'       => _x( 'Ambassador', 'Post Type Singular Name', 'zerif' ),
+		'menu_name'           => __( 'Ambassadors', 'zerif' ),
+		'parent_item_colon'   => __( 'Parent Movie', 'zerif' ),
+		'all_items'           => __( 'All Ambassadors', 'zerif' ),
+		'view_item'           => __( 'View Ambassador', 'zerif' ),
+		'add_new_item'        => __( 'Add New Ambassador', 'zerif' ),
+		'add_new'             => __( 'Add New', 'zerif' ),
+		'edit_item'           => __( 'Edit Ambassador', 'zerif' ),
+		'update_item'         => __( 'Update Ambassador', 'zerif' ),
+		'search_items'        => __( 'Search Ambassador', 'zerif' ),
+		'not_found'           => __( 'Not Found', 'zerif' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'zerif' ),
 	);
 
 // Set other options for Custom Post Type
 
 	$args = array(
-		'label'               => __( 'ambassadors', 'zerif-pro' ),
-		'description'         => __( 'Global Math Project Ambassadors', 'zerif-pro' ),
+		'label'               => __( 'ambassadors', 'zerif' ),
+		'description'         => __( 'Global Math Project Ambassadors', 'zerif' ),
 		'labels'              => $labels,
 		// Features this CPT supports in Post Editor
 		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields' ),
