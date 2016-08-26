@@ -2066,9 +2066,9 @@ function custom_post_type() {
 		'description'         => __( 'Global Math Project Ambassadors', 'zerif' ),
 		'labels'              => $labels,
 		// Features this CPT supports in Post Editor
-		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields' ),
+		'supports'            => array( 'author', 'revisions' ),
 		// You can associate this CPT with a taxonomy or custom taxonomy.
-		'taxonomies'          => array( 'genres' ),
+		// 'taxonomies'          => array( 'genres' ),
 		/* A hierarchical CPT is like Pages and can have
 		* Parent and child items. A non-hierarchical CPT
 		* is like Posts.
@@ -2084,7 +2084,7 @@ function custom_post_type() {
 		'has_archive'         => true,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
+		'capability_type'     => 'page'
 	);
 
 	// Registering your Custom Post Type
@@ -2099,6 +2099,18 @@ function custom_post_type() {
 
 add_action( 'init', 'custom_post_type', 0 );
 
+// Remove content editor from ambassador posts
 
+function remove_content_editor() {
+    remove_post_type_support( 'ambassadors', 'editor' );
+}
+add_action('init', 'remove_content_editor');
 
- require 'inc/cwp-update.php';
+// Remove title field from ambassador posts
+
+function remove_title() {
+    remove_post_type_support( 'ambassadors', 'title' );
+}
+add_action('init', 'remove_title');
+
+require 'inc/cwp-update.php';
