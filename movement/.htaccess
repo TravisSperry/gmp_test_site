@@ -1,0 +1,7 @@
+
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^movement\.theglobalmathproject\.org$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.movement\.theglobalmathproject\.org$
+RewriteRule ^(.*)$ "https\:\/\/afternoon\-plateau\-24154\.herokuapp\.com\/$1" [R=301,L]
+
