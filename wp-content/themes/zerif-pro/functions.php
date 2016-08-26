@@ -2017,5 +2017,88 @@ function zerif_query_post_type($query) {
     }
 }
 
+// Our custom post type function
+function create_posttype() {
+
+	register_post_type( 'ambassadors',
+	// CPT Options
+		array(
+			'labels' => array(
+				'name' => __( 'Ambassadors' ),
+				'singular_name' => __( 'Ambassador' )
+			),
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'ambassadors'),
+		)
+	);
+}
+// Hooking up our function to theme setup
+add_action( 'init', 'create_posttype' );
+
+/*
+* Creating a function to create our CPT
+*/
+
+function custom_post_type() {
+
+// Set UI labels for Custom Post Type
+	$labels = array(
+		'name'                => _x( 'Ambassadors', 'Post Type General Name', 'zerif-pro' ),
+		'singular_name'       => _x( 'Ambassador', 'Post Type Singular Name', 'zerif-pro' ),
+		'menu_name'           => __( 'Ambassadors', 'zerif-pro' ),
+		'parent_item_colon'   => __( 'Parent Movie', 'zerif-pro' ),
+		'all_items'           => __( 'All Ambassadors', 'zerif-pro' ),
+		'view_item'           => __( 'View Ambassador', 'zerif-pro' ),
+		'add_new_item'        => __( 'Add New Ambassador', 'zerif-pro' ),
+		'add_new'             => __( 'Add New', 'zerif-pro' ),
+		'edit_item'           => __( 'Edit Ambassador', 'zerif-pro' ),
+		'update_item'         => __( 'Update Ambassador', 'zerif-pro' ),
+		'search_items'        => __( 'Search Ambassador', 'zerif-pro' ),
+		'not_found'           => __( 'Not Found', 'zerif-pro' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'zerif-pro' ),
+	);
+
+// Set other options for Custom Post Type
+
+	$args = array(
+		'label'               => __( 'ambassadors', 'zerif-pro' ),
+		'description'         => __( 'Global Math Project Ambassadors', 'zerif-pro' ),
+		'labels'              => $labels,
+		// Features this CPT supports in Post Editor
+		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields' ),
+		// You can associate this CPT with a taxonomy or custom taxonomy.
+		'taxonomies'          => array( 'genres' ),
+		/* A hierarchical CPT is like Pages and can have
+		* Parent and child items. A non-hierarchical CPT
+		* is like Posts.
+		*/
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+	);
+
+	// Registering your Custom Post Type
+	register_post_type( 'ambassadors', $args );
+
+}
+
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not
+* unnecessarily executed.
+*/
+
+add_action( 'init', 'custom_post_type', 0 );
+
+
 
  require 'inc/cwp-update.php';
